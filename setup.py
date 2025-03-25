@@ -6,13 +6,11 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        'Django>=4.2',
-        'djangorestframework>=3.14.0',
-        'psycopg2-binary>=2.9.9',
-        'requests==2.32.3',
-        'django-solo==2.1.0',
-        'django-crontab>=0.7.1',
-        'celery>=5.0',
-        'django-celery-beat>=2.0',
-    ],
+        'Django>=3.2, <4.3',
+        'psycopg2-binary>=2.8, <2.10',
+        'requests>=2.25, <2.32',
+        'django-solo<=2.1',
+        'celery>=4.4, <5.4',
+        'django-celery-beat>=2.0, <3.0',
+    ]
 )
