@@ -12,7 +12,8 @@ class Command(BaseCommand):
         fields = {
             'api_url': config.api_url,
             'name': config.name,
-            'group': config.group
+            'group': config.group,
+            'api_key': config.api_key,
         }
 
         missing_fields = [field for field, value in fields.items() if not value]
@@ -30,8 +31,10 @@ class Command(BaseCommand):
             "name": config.name,
             "group": config.group,
         }
-
-        response = requests.post(config.api_url, json=data)
+        headers = {
+            "X-API-Key": config.api_key
+        }
+        response = requests.post(config.api_url, json=data, headers=headers)
         self.stdout.write(f"{response.status_code} {response.text}")
 
         if response.status_code == 200:
